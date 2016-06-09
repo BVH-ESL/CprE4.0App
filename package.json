@@ -14,6 +14,7 @@
     "mongodb": "^2.1.21",
     "mongoose": "^4.4.20",
     "node-hid": "^0.5.1",
-    "quagga": "^0.11.2"
+    "quagga": "^0.11.2",
+    "serialport": "^3.1.2"
   }
 }
