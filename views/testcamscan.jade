@@ -1,0 +1,51 @@
+doctype
+html( lang="en" )
+  head
+    meta( charset='utf-8' )
+    meta( http-equiv='X-UA-Compatible', content='IE=edge' )
+    meta( name='viewport', content='width=device-width, initial-scale=1.0' )
+    meta( name='description', content='Baking Bootstrap Snippets with Jade' )
+    style.
+      
+  body
+    header
+      .headline
+        h1 Quaggajs
+    section#container.contanier
+      .controls
+        fieldset
+          button.stop stop
+        fieldset
+          label
+            span Barcode type
+            select(name="decoder_readers")
+              - var options = [{value: 'code_128', label: 'code_128'}, {value: 'sad', label: 'Sad'}]
+              each option in options
+                option(value=option.value)= option.label
+          label
+            span Resolution (long side)
+            select(name="input-stream_constraints")
+              - var options = [{value: '640x480', label: '640px'}]
+              each option in options
+                option(value=option.value)= option.label
+          label
+            span Patch-Size
+            select(name="locator_patch-size")
+              - var options = [{value: 'medium', label: 'medium'}]
+              each option in options
+                option(value=option.value)= option.label
+          label
+            span Half-Sample
+            input(type="checkbox",checked,name="locator_half-sample")
+          label
+            span Worker
+            select(name="numOfWorkers")
+              option(value="4")= 4
+      #result_strip
+        ul.tumbnails
+        ul.collector
+      #interactive.viewport
+
+    script( src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' )
+    script( src='../node_modules/quagga/dist/quagga.js' )
+    script( src='../vendor/test_cam_scan.js' )
