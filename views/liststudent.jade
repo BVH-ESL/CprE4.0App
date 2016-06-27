@@ -1,0 +1,15 @@
+doctype
+html
+    include ./header.jade
+    body
+      .content
+        h1 List Student
+        script
+          include ../js/liststudent.js
+        table.table.table-striped#list
+          thead
+            tr
+              th #
+              th Name
+              th Student ID
+              th Department

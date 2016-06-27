@@ -1,6 +1,8 @@
 var express = require('express');
 var path = require('path');
 var routes = require('./routes/index');
+var wss = require('./js/wsRFIDReadder');
+// var RFIDReadder = require('./vendor/readRFIDSerial');
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
@@ -12,8 +14,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use('/', routes);
-app.use("/vendor",express.static(__dirname + "/vendor"));
+// app.use('/', wss);
+app.use("/js",express.static(__dirname + "/js"));
 app.use("/node_modules",express.static(__dirname + "/node_modules"));
+app.use("/test",express.static(__dirname + "/test"));
 // app.use('/users', users);
 
 /// catch 404 and forwarding to error handler
